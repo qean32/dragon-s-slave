@@ -14,7 +14,7 @@ export interface ButtonProps
 
 const variantStyles: Record<ButtonVariant, string> = {
     primary:
-        'bg-red-800 text-white border-red-900 ' +
+        'bg-dragon text-white border-red-900 ' +
         'hover:bg-red-900',
     secondary:
         'bg-dragon-elevated text-red-400 border-2 border-red-900/70 ' +
@@ -28,9 +28,9 @@ const variantStyles: Record<ButtonVariant, string> = {
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-    sm: 'px-4 py-1.5 text-[13px]',
-    md: 'px-6 py-2.5 text-sm',
-    lg: 'px-8 py-3.5 text-base',
+    sm: 'px-2 py-1.5 text-[13px]',
+    md: 'px-3 py-2.5 text-sm',
+    lg: 'px-5 py-3.5 text-base',
 };
 
 export const Button: React.FC<ButtonProps> = ({
