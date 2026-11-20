@@ -35,7 +35,7 @@ export const Avatar: React.FC<AvatarProps> = ({
             className={[
                 'relative inline-flex rounded-full overflow-visible',
                 'border-2 border-dragon-fire-500 shadow-[0_0_10px_rgba(255,107,26,0.4)]',
-                'bg-gradient-to-br from-dragon-fire-700 to-dragon-magic-700',
+                'from-dragon-fire-700 to-dragon-magic-700',
                 sizeStyles[size],
             ].join(' ')}
         >

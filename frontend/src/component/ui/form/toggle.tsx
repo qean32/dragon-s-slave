@@ -1,4 +1,3 @@
-// ui-kit/Toggle.tsx
 import React from 'react';
 
 export interface ToggleProps {
@@ -34,9 +33,9 @@ export const Toggle: React.FC<ToggleProps> = ({
         >
             <span
                 className={[
-                    'absolute top-[2px] left-[2px] w-[18px] h-[18px] rounded-full',
+                    'absolute rounded-full',
                     'bg-dragon-text-secondary transition-all duration-200',
-                    'peer-checked:left-[22px] peer-checked:bg-dragon-fire-100',
+                    'peer-checked:bg-dragon-fire-100',
                 ].join(' ')}
             />
         </span>

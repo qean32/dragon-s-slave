@@ -1,14 +1,21 @@
-import { useState } from 'react';
-import {
-    Button, Input, Card, CardHeader, CardBody, CardFooter,
-    Badge, Modal, Toggle, ProgressBar, Tabs, Avatar,
-} from './component/ui';
-import './style/core.css'
+import ReactDOM from 'react-dom/client'
+import { Router } from './router'
+import { MainLoader } from '@/component/widget'
+import { Root } from '@/component/core/root'
+import "@/style/app.css"
 
-export default function App() {
-    return (
-        <div className="min-h-screen p-10 bg-dragon-deep bg-dragon-pattern">
-            <Button children="67" variant='secondary' />
-        </div>
-    );
-}
+ReactDOM.createRoot(document.getElementById('root')!).render(
+    <Root>
+        <MainLoader />
+        <Router />
+    </Root>
+)
+
+
+/**
+ * push this in React -> declare namespace React
+ * interface HTMLAttributes<T> extends DOMAttributes<T> {
+ *   data?: string;
+ *   value?: string;
+ * }
+*/

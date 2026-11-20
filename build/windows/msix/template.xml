@@ -44,7 +44,7 @@
             <DisplayName>My Product</DisplayName>
             <PublisherDisplayName>My Company</PublisherDisplayName>
             <Description>A zxccurseeed application</Description>
-            <Logo>Assets\AppIcon.png</Logo>
+            <Logo>Assets\appicon.png</Logo>
         </Properties>
     </PackageInformation>
     <SaveLocation PackagePath="zxccurseeed.msix" />
