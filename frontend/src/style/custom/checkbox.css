@@ -1,0 +1,66 @@
+:root {
+    --checkbox-size: 14px;
+    --checkedbox-size: 14px;
+    --checkbox-border-color: var(--color-dragon);
+}
+
+@keyframes pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.15);
+    }
+
+    75% {
+        opacity: 1;
+        transform: scale(0.92);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+label {
+    cursor: pointer;
+}
+
+.checkbox-pop-label-span {
+    display: inline-block;
+    width: 25px;
+    height: 19px;
+    position: relative;
+}
+
+.checkbox-pop-label-span::before,
+.checkbox-pop-label-span::after {
+    transition:
+        transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+    border-radius: 2px;
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    background: transparent;
+    border: 2px solid var(--checkbox-border-color);
+    transform-origin: center;
+}
+
+.checkbox-pop-label-span::after {
+    z-index: 0;
+    border: none;
+}
+
+.checkbox-pop:checked+label span::before {
+    animation: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    z-index: 10;
+    background: var(--checkbox-border-color);
+}

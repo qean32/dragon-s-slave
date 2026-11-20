@@ -15,16 +15,16 @@ export interface ButtonProps
 const variantStyles: Record<ButtonVariant, string> = {
     primary:
         'bg-dragon text-white border-red-900 ' +
-        'hover:bg-red-900',
+        'hover:shadow-[0_0_16px_rgba(220,38,38,0.5)]',
     secondary:
         'bg-dragon-elevated text-red-400 border-2 border-red-900/70 ' +
-        'hover:bg-red-950/40 hover:text-red-300',
+        'hover:shadow-[0_0_16px_rgba(220,38,38,0.35)]',
     ghost:
         'bg-transparent text-red-400 border-transparent ' +
-        'hover:bg-red-950/30 hover:text-red-300',
+        'hover:shadow-[0_0_12px_rgba(220,38,38,0.25)]',
     danger:
         'bg-red-900 text-white border-red-950 ' +
-        'hover:bg-red-950',
+        'hover:shadow-[0_0_16px_rgba(220,38,38,0.55)]',
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -47,10 +47,10 @@ export const Button: React.FC<ButtonProps> = ({
         className={[
             'relative inline-flex items-center justify-center gap-2',
             'font-semibold tracking-wide',
-            'rounded-lg',
+            'rounded-md',
             'border',
             'cursor-pointer select-none overflow-hidden',
-            'transition-colors duration-200 ease-out',
+            'transition-shadow duration-200 ease-out',
             'disabled:opacity-45 disabled:cursor-not-allowed',
             variantStyles[variant],
             sizeStyles[size],

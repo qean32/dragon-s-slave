@@ -37,16 +37,15 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                     id={id}
                     type="text"
                     value={value}
-                    defaultValue={defaultValue}
                     onChange={handleChange}
                     aria-invalid={!!error}
                     className={cn(
-                        'w-full rounded-sm border bg-dragon-elevated px-3 py-2 text-md',
+                        'w-full rounded-md border bg-dragon-elevated px-3 py-3 text-md',
                         'outline-none transition-colors',
-                        maxLength && 'pr-14',
+                        maxLength ? 'outline-2 outline-dragon-border' : "outline-2 outline-smoke",
                         error
-                            ? 'border-white-500 focus:border-dragon'
-                            : 'border-dragon-border focus:border-red-700',
+                            ? 'outline-2 outline-smoke'
+                            : 'outline-2 outline-dragon-border focus:outline-red-700',
                     )}
                     {...rest}
                 />
@@ -54,7 +53,8 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                 {maxLength && (
                     <p
                         className={cn(
-                            'pointer-events-none absolute right-1.5 bottom-6 z-10 text-sm tabular-nums',
+                            'pointer-events-none absolute right-1.5 font-bold bottom-6 z-10 tabular-nums',
+                            'text-[11px] leading-none',
                             length > maxLength ? 'text-dragon' : '',
                         )}
                     >

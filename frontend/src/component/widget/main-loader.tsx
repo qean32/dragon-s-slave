@@ -1,31 +1,46 @@
-import React from 'react'
-import { cn, getBetweenNumber } from '@/lib/func'
-import { Logo } from '@/component/ui'
-import { useBoolean } from '@/lib/hook'
-import { tip } from '@/config'
-import { Portal } from '@/component/core'
+import React from 'react';
+import { cn, getBetweenNumber } from '@/lib/func';
+import { Logo } from '@/component/ui';
+import { useBoolean } from '@/lib/hook';
+import { tip } from '@/config';
+import { Portal } from '@/component/core';
 
 interface Props {
-    infinity?: boolean
+    infinity?: boolean;
+    duration?: number;
 }
 
+export const MainLoader: React.FC<Props> = ({
+    infinity = false,
+    duration = 2000,
+}) => {
+    const { boolean, off } = useBoolean(true);
 
-export const MainLoader: React.FC<Props> = ({ }: Props) => {
-    const { boolean, off } = useBoolean(true)
-    const ref = React.useRef(tip[getBetweenNumber(1, tip.length)])
+    const [phrase] = React.useState(() =>
+        tip?.[getBetweenNumber(0, (tip?.length ?? 1) - 1)] ?? tip?.[0] ?? '',
+    );
 
     React.useEffect(() => {
-        setTimeout(off, 2000)
-    }, [])
+        if (infinity) return;
+
+        const timer = setTimeout(off, duration);
+        return () => clearTimeout(timer);
+    }, [off, duration, infinity]);
 
     return (
         <Portal>
-            <div className={cn("fixed flex-col gap-7 inset-0 bg-color-darkness flex justify-center items-center transition-300", (!boolean && 'pointer-events-none opacity-0'))} style={{ zIndex: '60' }}>
-                <Logo size='icon-2xl' />
-                <p className='text-xl max-w-1/3 text-center'>
-                    {ref.current ?? tip[0]}
-                </p>
+            <div
+                className={cn(
+                    'fixed inset-0 flex flex-col gap-7',
+                    'bg-dark backdrop-blur-sm z-10',
+                    'flex justify-center items-center',
+                    'transition-opacity duration-300',
+                    !boolean && 'pointer-events-none opacity-0',
+                )}
+            >
+                <Logo size="icon-2xl" />
+                <p className="max-w-1/3 text-center text-md">{phrase}</p>
             </div>
         </Portal>
-    )
-}
+    );
+};

@@ -2,17 +2,28 @@
 @import './core.css';
 
 @theme {
-  --color-dark: #111111;
-  --color-smoke: #f5f5f5;
-  --color-dragon: #8B1E1E;
+    --color-dark: #111111;
+    --color-darkness: #101010;
+    --color-smoke: #D9D9D9;
+    --color-dragon: #8B1E1E;
 }
 
 @layer base {
-  * {
-    color: var(--color-smoke);
-  }
-}
+    * {
+        color: var(--color-smoke);
+        font-weight: bold;
+    }
 
-body {
-    background-color: var(--color-dark);
+    html,
+    body {
+        min-height: 100dvh;
+    }
+
+    body {
+        background-color: var(--color-dark);
+    }
+
+    body>#root {
+        height: fit-content;
+    }
 }
