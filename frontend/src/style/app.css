@@ -2,8 +2,8 @@
 @import './core.css';
 
 @theme {
-    --color-dark: #111111;
-    --color-darkness: #101010;
+    --color-dark: #171515;
+    --color-darkness: #111111;
     --color-smoke: #D9D9D9;
     --color-dragon: #8B1E1E;
 }

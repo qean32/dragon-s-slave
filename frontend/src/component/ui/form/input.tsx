@@ -1,8 +1,9 @@
-import React, { forwardRef, useId, useState } from 'react';
+import React, { forwardRef, useId } from 'react';
 import { cn } from '@/lib/func';
 
 interface Props extends React.ComponentProps<'input'> {
     error?: string;
+    title?: string;
 }
 
 export const TextInput = forwardRef<HTMLInputElement, Props>(
@@ -10,68 +11,42 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
         {
             defaultValue,
             value,
-            maxLength,
             className,
             error,
+            title,
             ...rest
         },
         ref,
     ) => {
         const id = useId();
 
-        const [uncontrolledLength, setUncontrolledLength] = useState(
-            typeof defaultValue === 'string' ? defaultValue.length : 0,
-        );
-
-        const length = value !== undefined ? String(value).length : uncontrolledLength;
-
-        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            if (value === undefined) setUncontrolledLength(e.target.value.length);
-            rest.onChange?.(e);
-        };
-
         return (
-            <div className={cn('relative', className)}>
+            <div className={cn('relative flex flex-col gap-1', className)}>
+                {title && (
+                    <label
+                        htmlFor={id}
+                        className="text-[14px] mb-0.5 font-semibold tracking-wide text-dragon-text-secondary"
+                    >
+                        {title}
+                    </label>
+                )}
+
                 <input
                     ref={ref}
                     id={id}
                     type="text"
                     value={value}
-                    onChange={handleChange}
+                    placeholder={error ? error : ""}
                     aria-invalid={!!error}
                     className={cn(
-                        'w-full rounded-md border-2 border-red-900/70 px-3 py-3 text-md',
-                        'outline-none transition-colors',
-                        maxLength ? 'outline-2 outline-dragon-border' : "outline-2 outline-smoke",
+                        'w-full rounded-sm outline-2 outline-red-900/70 px-3 py-2 text-sm',
+                        'transition-colors',
                         error
                             ? 'outline-2 outline-smoke'
-                            : 'outline-2 outline-dragon-border focus:outline-red-700',
+                            : 'outline-2 outline-dragon',
                     )}
                     {...rest}
                 />
-
-                {maxLength && (
-                    <p
-                        className={cn(
-                            'pointer-events-none absolute right-1.5 font-bold bottom-6 z-10 tabular-nums',
-                            'text-[11px] leading-none',
-                            length > maxLength ? 'text-dragon' : '',
-                        )}
-                    >
-                        {length}/{maxLength}
-                    </p>
-                )}
-
-                <p
-                    className={cn(
-                        'absolute text-md left-1 -bottom-1 text-dragon',
-                        !error && 'opacity-0',
-                    )}
-                >
-                    {error || '\u00A0'}
-                </p>
-
-                <div className="h-5" aria-hidden="true" />
             </div>
         );
     },

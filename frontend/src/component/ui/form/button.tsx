@@ -14,16 +14,16 @@ export interface ButtonProps
 
 const variantStyles: Record<ButtonVariant, string> = {
     primary:
-        'bg-dragon text-white border-red-900 ' +
+        'bg-dragon text-white outline-red-900 ' +
         'hover:shadow-[0_0_16px_rgba(220,38,38,0.5)]',
     secondary:
-        'bg-dragon-elevated text-red-400 border-2 border-red-900/70 ' +
+        'bg-dragon-elevated text-red-400 outline-2 outline-red-900/70 ' +
         'hover:shadow-[0_0_16px_rgba(220,38,38,0.35)]',
     ghost:
-        'bg-transparent text-red-400 border-transparent ' +
+        'bg-transparent text-red-400 outline-transparent ' +
         'hover:shadow-[0_0_12px_rgba(220,38,38,0.25)]',
     danger:
-        'bg-red-900 text-white border-red-950 ' +
+        'bg-red-900 text-white outline-red-950 ' +
         'hover:shadow-[0_0_16px_rgba(220,38,38,0.55)]',
 };
 
@@ -48,7 +48,7 @@ export const Button: React.FC<ButtonProps> = ({
             'relative inline-flex items-center justify-center gap-2',
             'font-semibold tracking-wide',
             'rounded-md',
-            'border',
+            'outline',
             'cursor-pointer select-none overflow-hidden',
             'transition-shadow duration-200 ease-out',
             'disabled:opacity-45 disabled:cursor-not-allowed',
@@ -61,7 +61,7 @@ export const Button: React.FC<ButtonProps> = ({
         {...rest}
     >
         {loading ? (
-            <span className="w-3.5 h-3.5 border-2 border-current border-t-transparent rounded-full animate-dragon-spin" />
+            <span className="w-3.5 h-3.5 outline-2 outline-current outline-t-transparent rounded-full animate-dragon-spin" />
         ) : (
             icon
         )}
