@@ -40,7 +40,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                     onChange={handleChange}
                     aria-invalid={!!error}
                     className={cn(
-                        'w-full rounded-md border bg-dragon-elevated px-3 py-3 text-md',
+                        'w-full rounded-md border-2 border-red-900/70 px-3 py-3 text-md',
                         'outline-none transition-colors',
                         maxLength ? 'outline-2 outline-dragon-border' : "outline-2 outline-smoke",
                         error

@@ -1,3 +1,4 @@
+import { ModalProvider } from "@/store/modal";
 import React from "react"
 import { Toaster } from 'react-hot-toast';
 
@@ -5,8 +6,10 @@ export const Root: React.FC<{ children: React.ReactNode }> = ({ children }: { ch
     return (
         <>
             <React.StrictMode>
-                {children}
-                <Toaster />
+                <ModalProvider>
+                    {children}
+                    <Toaster />
+                </ModalProvider>
             </React.StrictMode>
         </>
     )
