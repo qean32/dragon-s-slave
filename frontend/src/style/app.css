@@ -2,8 +2,8 @@
 @import './core.css';
 
 @theme {
-    --color-dark: #171515;
-    --color-darkness: #111111;
+    --color-dark: #090909;
+    --color-darkness: #080808;
     --color-smoke: #D9D9D9;
     --color-dragon: #8B1E1E;
 }
@@ -12,6 +12,10 @@
     * {
         color: var(--color-smoke);
         font-weight: 500;
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
     }
 
     html,
@@ -20,6 +24,6 @@
     }
 
     body {
-        background-color: var(--color-dark);
+        background-color: var(--color-darkness);
     }
 }

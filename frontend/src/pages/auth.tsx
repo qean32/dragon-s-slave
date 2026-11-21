@@ -11,7 +11,7 @@ export const Auth = () => {
     const isLogin = mode === 'login';
 
     return (
-        <main className="flex min-h-dvh flex-col items-center justify-center bg-darkness bg-dragon-pattern px-4 py-10">
+        <main className="flex min-h-dvh flex-col items-center justify-center bg-dragon-pattern px-4 py-10">
             <Logo size="icon-lg" />
 
             <div className="w-100 max-w-4xl rounded-2xl bg-darkness p-8 pt-4 shadow-lg backdrop-blur-sm">
