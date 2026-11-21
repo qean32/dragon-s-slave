@@ -11,7 +11,7 @@
 @layer base {
     * {
         color: var(--color-smoke);
-        font-weight: bold;
+        font-weight: 500;
     }
 
     html,
@@ -21,9 +21,5 @@
 
     body {
         background-color: var(--color-dark);
-    }
-
-    body>#root {
-        height: fit-content;
     }
 }

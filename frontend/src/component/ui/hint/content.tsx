@@ -42,7 +42,7 @@ export const HintContent = ({ children, className }: HintContentProps) => {
             role="tooltip"
             style={{ '--gutter': gutter } as React.CSSProperties}
             className={cn(
-                'absolute z-50 whitespace-nowrap rounded-md outline-smoke/50 outline border-dragon-border',
+                'absolute z-50 text-sm font-light whitespace-nowrap rounded-md outline-smoke/50 outline border-dragon-border',
                 'bg-dark px-3 py-1.5 text-sm text-dragon-text-primary shadow-lg',
                 'transition-all duration-300 ease-out origin-bottom',
                 visible
