@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Checkbox, HiddenButton, TextInput } from '@/component/ui';
+import { Button, Checkbox, GoogleButton, HiddenButton, TextInput } from '@/component/ui';
 
 interface Props {
     onSwitch: () => void;
@@ -31,9 +31,8 @@ export const RegisterForm = ({ onSwitch }: Props) => {
             />
 
             <div className="mt-auto flex flex-col gap-2">
-                <Button type="submit" variant="secondary" size="md" fullWidth loading={loading}>
-                    Зарегистрироваться
-                </Button>
+                <Button type="submit" variant="secondary" size="md" fullWidth loading={loading}>Зарегистрироваться</Button>
+                <GoogleButton />
                 <HiddenButton onClick={onSwitch}>Нет аккаунта? Зарегистрироваться</HiddenButton>
             </div>
         </form>

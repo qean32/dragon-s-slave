@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, HiddenButton, TextInput } from '@/component/ui';
+import { Button, GoogleButton, HiddenButton, TextInput } from '@/component/ui';
 
 interface Props {
     onSwitch: () => void;
@@ -24,9 +24,8 @@ export const LoginForm = ({ onSwitch }: Props) => {
             <TextInput name="password" type="password" title="Пароль" autoComplete="current-password" required />
 
             <div className="mt-auto flex flex-col gap-2">
-                <Button type="submit" variant="secondary" size="md" fullWidth loading={loading}>
-                    Войти
-                </Button>
+                <Button type="submit" variant="secondary" size="md" fullWidth loading={loading}>Войти</Button>
+                <GoogleButton />
                 <HiddenButton onClick={onSwitch}>Нет аккаунта? Зарегистрироваться</HiddenButton>
             </div>
         </form>

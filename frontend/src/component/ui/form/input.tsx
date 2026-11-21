@@ -39,11 +39,11 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                     placeholder={error ? error : ""}
                     aria-invalid={!!error}
                     className={cn(
-                        'w-full rounded-sm outline-2 outline-red-900/70 px-3 py-2 text-sm',
+                        'w-full rounded-sm outline-1 outline-smoke px-3 py-2 text-sm',
                         'transition-colors',
                         error
-                            ? 'outline-2 outline-smoke'
-                            : 'outline-2 outline-dragon',
+                            ? 'outline-1 outline-smoke'
+                            : 'outline-1 outline-dragon',
                     )}
                     {...rest}
                 />

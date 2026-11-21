@@ -10,7 +10,7 @@ export const HiddenButton = ({ children, className, ...rest }: Props) => (
         type="button"
         {...rest}
         className={cn(
-            'text-sm text-red-600 transition-colors cursor-pointer',
+            'text-sm text-dragon transition-colors cursor-pointer',
             className,
         )}
     >
