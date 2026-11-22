@@ -1,24 +1,26 @@
 import React, { forwardRef, useId } from 'react';
 import { cn } from '@/lib/func';
+import { useFormContext } from 'react-hook-form';
 
 interface Props extends React.ComponentProps<'input'> {
-    error?: string;
     title?: string;
+    name: string;
 }
 
 export const TextInput = forwardRef<HTMLInputElement, Props>(
     (
         {
-            defaultValue,
-            value,
             className,
-            error,
             title,
+            name,
             ...rest
         },
         ref,
     ) => {
         const id = useId();
+        const { register, formState: { errors } } = useFormContext()
+        const textError = errors[name]?.message as string;
+
 
         return (
             <div className={cn('relative flex flex-col gap-1', className)}>
@@ -32,16 +34,15 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                 )}
 
                 <input
+                    {...register(name)}
                     ref={ref}
                     id={id}
-                    type="text"
-                    value={value}
-                    placeholder={error ? error : ""}
-                    aria-invalid={!!error}
+                    placeholder={textError ?? rest.placeholder ?? ''}
+                    aria-invalid={!!textError}
                     className={cn(
                         'w-full rounded-sm outline-1 outline-smoke px-3 py-2 text-sm',
                         'transition-colors',
-                        error
+                        textError
                             ? 'outline-1 outline-smoke'
                             : 'outline-1 outline-dragon',
                     )}

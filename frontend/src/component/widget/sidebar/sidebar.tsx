@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Logo } from '@/component/ui';
 import { cn } from '@/lib/func';
 import { SidebarItem } from './sidebar-item';
-import DragonIcon from '@/assets/icon/logo.svg?react';
+import { LogoIcon } from '@/assets/icon';
 
 interface Props {
     className?: string;
@@ -29,25 +29,25 @@ export const Sidebar = ({ className }: Props) => {
 
             <nav className="flex flex-1 flex-col items-center gap-2" aria-label="Основная навигация">
                 <SidebarItem
-                    icon={<DragonIcon fill='text-white' />}
+                    icon={<LogoIcon />}
                     label="Главная"
                     href="/"
                     active={isActive('/')}
                 />
                 <SidebarItem
-                    icon={<DragonIcon />}
+                    icon={<LogoIcon fill="blue" />}
                     label="Битвы"
                     onClick={() => navigate('/battle')}
                     active={isActive('/battle')}
                 />
                 <SidebarItem
-                    icon={<DragonIcon />}
+                    icon={<LogoIcon />}
                     label="Арсенал"
                     onClick={() => navigate('/armory')}
                     active={isActive('/armory')}
                 />
                 <SidebarItem
-                    icon={<DragonIcon />}
+                    icon={<LogoIcon />}
                     label="Летописи"
                     onClick={() => navigate('/lore')}
                     active={isActive('/lore')}
@@ -56,7 +56,7 @@ export const Sidebar = ({ className }: Props) => {
 
             <div className="flex flex-col items-center gap-2">
                 <SidebarItem
-                    icon={<DragonIcon />}
+                    icon={<LogoIcon />}
                     label="Настройки"
                     onClick={() => navigate('/settings')}
                     active={isActive('/settings')}
