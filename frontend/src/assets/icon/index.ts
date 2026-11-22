@@ -1,3 +1,16 @@
-import LogoIcon from '@/assets/icon/logo.svg?react'
-
-export { LogoIcon }
+export { default as LogoIcon } from '@/assets/icon/logo.svg?react';
+export { default as CommunityIcon } from '@/assets/icon/community.svg?react';
+export { default as CopyIcon } from '@/assets/icon/copy.svg?react';
+export { default as DiscordIcon } from '@/assets/icon/discord.svg?react';
+export { default as DownloadIcon } from '@/assets/icon/download.svg?react';
+export { default as GalleryIcon } from '@/assets/icon/gallery.svg?react';
+export { default as HomeIcon } from '@/assets/icon/home.svg?react';
+export { default as MessageIcon } from '@/assets/icon/message.svg?react';
+export { default as SearchIcon } from '@/assets/icon/search.svg?react';
+export { default as ShareIcon } from '@/assets/icon/share.svg?react';
+export { default as ThreePointIcon } from '@/assets/icon/three-point.svg?react';
+export { default as ForgeIcon } from '@/assets/icon/forge.svg?react';
+export { default as PersonIcon } from '@/assets/icon/person.svg?react';
+export { default as BookIcon } from '@/assets/icon/book.svg?react';
+export { default as TrashIcon } from '@/assets/icon/trash.svg?react';
+export { default as MapIcon } from '@/assets/icon/map.svg?react';
