@@ -47,7 +47,7 @@ export const Select = ({
         <div className={cn('flex w-full flex-col gap-2', className)}>
             <div className="flex items-center gap-2 pl-2 text-dragon-magic">
                 <span className="flex h-4 w-5 items-center justify-center">{icon}</span>
-                <span className="text-[12px] font-bold uppercase tracking-wider">{title}</span>
+                <span className="text-[12px] font-bold">{title}</span>
             </div>
 
             <button
@@ -62,7 +62,7 @@ export const Select = ({
                 )}
             >
                 <span className="truncate text-sm font-medium text-dragon-text-primary">
-                    {selectedLabel || '—'}
+                    {selectedLabel || '-'}
                 </span>
                 <svg
                     width="14"
@@ -89,7 +89,7 @@ export const Select = ({
                         role="listbox"
                         className={cn(
                             'z-50 flex flex-col gap-1 rounded-xl bg-dark p-1.5',
-                            'shadow-[0_4px_24px_-4px_rgba(0,0,0,0.25),0_2px_8px_-2px_rgba(139,30,30,0.15)]',
+                            'shadow-[0_4px_6px_rgba(220,38,38,0.020)]',
                             'transition-all duration-150 ease-out origin-top',
                             state === 'open'
                                 ? 'scale-100 opacity-100 translate-y-0'

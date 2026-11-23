@@ -5,9 +5,10 @@ interface Props {
     label: string;
     isActive: boolean;
     onClick: () => void;
+    multiple?: boolean
 }
 
-export const Option = React.memo(({ label, isActive, onClick }: Props) => {
+export const Option = React.memo(({ label, isActive, onClick, multiple = false }: Props) => {
     return (
         <button
             type="button"
@@ -15,14 +16,19 @@ export const Option = React.memo(({ label, isActive, onClick }: Props) => {
             aria-selected={isActive}
             onClick={onClick}
             className={cn(
-                'flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm transition-colors hover:bg-darkness',
+                'flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm transition-colors',
+                multiple && 'bg-darkness',
+                !multiple && 'hover:bg-darkness',
                 isActive
-                    ? 'bg-dragon-magic/20 text-dragon-text-primary '
+                    ? 'text-dragon-text-primary'
                     : 'text-dragon-text-secondary hover:bg-dragon-elevated hover:text-dragon-text-primary',
+
+                multiple && isActive && 'outline-1 outline-dragon ring-dragon-magic',
+                !multiple && isActive && 'bg-dragon-magic/20',
             )}
         >
             <span className="truncate">{label}</span>
-            {isActive && (
+            {isActive && !multiple && (
                 <svg
                     width="14"
                     height="14"

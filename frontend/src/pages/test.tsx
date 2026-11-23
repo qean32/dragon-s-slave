@@ -13,7 +13,7 @@ export const TYPE_OPTIONS = [
 export const Test = () => {
 
     return (
-        <main className="flex justify-center items-center h-[200vh]">
+        <main className="flex justify-center items-center h-screen">
             <div className="w-50">
                 <Select icon={<LogoIcon />} title="Список" options={TYPE_OPTIONS} />
                 <MultipleSelect icon={<LogoIcon />} title="Список" options={TYPE_OPTIONS} />

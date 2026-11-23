@@ -48,6 +48,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                     )}
                     {...rest}
                 />
+                {textError && <p className='text-[10px] text-dragon'>{textError}</p>}
             </div>
         );
     },

@@ -2,7 +2,8 @@ import * as React from 'react';
 import { cn } from '@/lib/func';
 import { Portal } from '@/component/core';
 import { Option } from './option';
-import { useSelect } from '@/lib/hook';
+import { useSelect, useLocalFilter } from '@/lib/hook';
+import { ControlledSearch } from './controlled-search';
 
 interface Option {
     value: string;
@@ -31,24 +32,29 @@ export const MultipleSelect = ({
     const [innerValue, setInnerValue] = React.useState<string[]>(defaultValue ?? []);
     const values = valueProp ?? innerValue;
 
-    // ширина панели ×2 — как было в твоём мульти
+    const [query, setQuery] = React.useState('');
+
     const { open, state, triggerRef, toggleMenu, panelProps } = useSelect({
         widthMultiplier: 2,
     });
 
     const selectedLabel = React.useMemo(() => {
-        if (values.length === 0) return '—';
+        if (values.length === 0) return '';
         return values
             .map((v) => options.find((o) => o.value === v)?.label ?? v)
             .join(', ');
     }, [values, options]);
+
+    const { filtered: filteredOptions, isEmpty } = useLocalFilter({
+        options,
+        query,
+    });
 
     const commit = (next: string[]) => {
         if (valueProp === undefined) setInnerValue(next);
         onChange?.(next);
     };
 
-    // всегда toggle, панель не закрываем
     const handleSelect = (val: string) => {
         const next = values.includes(val)
             ? values.filter((v) => v !== val)
@@ -56,11 +62,19 @@ export const MultipleSelect = ({
         commit(next);
     };
 
+    const handleReset = () => {
+        commit([]);
+    };
+
+    React.useEffect(() => {
+        if (!open) setQuery('');
+    }, [open]);
+
     return (
         <div className={cn('flex w-full flex-col gap-2', className)}>
             <div className="flex items-center gap-2 pl-2 text-dragon-magic">
                 <span className="flex h-4 w-5 items-center justify-center">{icon}</span>
-                <span className="text-[12px] font-bold uppercase tracking-wider">{title}</span>
+                <span className="text-[12px] font-bold">{title}</span>
             </div>
 
             <button
@@ -102,23 +116,47 @@ export const MultipleSelect = ({
                         role="listbox"
                         aria-multiselectable
                         className={cn(
-                            'z-50 rounded-xl bg-dark p-1.5',
-                            'flex flex-row flex-wrap gap-1',
-                            'shadow-[0_4px_24px_-4px_rgba(0,0,0,0.25),0_2px_8px_-2px_rgba(139,30,30,0.15)]',
+                            'z-50 flex flex-col rounded-xl bg-dark p-1.5',
+                            'shadow-[0_4px_6px_rgba(220,38,38,0.020)]',
                             'transition-all duration-150 ease-out origin-top',
                             state === 'open'
                                 ? 'scale-100 opacity-100 translate-y-0'
                                 : 'scale-95 opacity-0 -translate-y-1',
                         )}
                     >
-                        {options.map((opt) => (
-                            <Option
-                                key={opt.value}
-                                label={opt.label}
-                                isActive={values.includes(opt.value)}
-                                onClick={() => handleSelect(opt.value)}
-                            />
-                        ))}
+                        <div className="py-1 pb-2">
+                            <ControlledSearch setValue={setQuery} value={query} />
+                        </div>
+
+                        <div className="flex flex-row flex-wrap gap-2">
+                            {!isEmpty ? (
+                                filteredOptions.map((opt) => (
+                                    <Option
+                                        key={opt.value}
+                                        multiple
+                                        label={opt.label}
+                                        isActive={values.includes(opt.value)}
+                                        onClick={() => handleSelect(opt.value)}
+                                    />
+                                ))
+                            ) : (
+                                <span className="px-3 py-2 text-sm text-dragon-text-secondary">
+                                    Ничего не найдено
+                                </span>
+                            )}
+                        </div>
+
+                        <div className="mt-2 w-fit py-1 pt-2">
+                            <button
+                                type="button"
+                                onClick={handleReset}
+                                className={cn(
+                                    'w-full rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+                                )}
+                            >
+                                Сбросить
+                            </button>
+                        </div>
                     </div>
                 </Portal>
             )}
