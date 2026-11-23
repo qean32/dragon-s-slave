@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { LoginForm, RegisterForm } from '@/component/widget';
-import { Logo } from '@/component/ui';
 import { Title } from '@/component/ui/title';
 import { cn } from '@/lib/func';
 
@@ -12,8 +11,6 @@ export const Auth = () => {
 
     return (
         <main className="flex min-h-dvh flex-col items-center justify-center bg-dragon-pattern px-4 py-2">
-            <Logo size="icon-lg" />
-
             <div className="w-100 max-w-4xl rounded-2xl bg-darkness p-8 pt-4 shadow-lg backdrop-blur-sm">
                 <div className="grid">
                     <section

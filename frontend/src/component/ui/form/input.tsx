@@ -1,6 +1,6 @@
 import React, { forwardRef, useId } from 'react';
 import { cn } from '@/lib/func';
-import { useFormContext } from 'react-hook-form';
+import { useFormContext, useFormState } from 'react-hook-form';
 
 interface Props extends React.ComponentProps<'input'> {
     title?: string;
@@ -15,11 +15,12 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             name,
             ...rest
         },
-        ref,
     ) => {
         const id = useId();
-        const { register, formState: { errors } } = useFormContext()
-        const textError = errors[name]?.message as string;
+        const { register, control } = useFormContext();
+        const { errors } = useFormState({ control });
+
+        const textError = errors[name]?.message as string | undefined;
 
 
         return (
@@ -34,10 +35,10 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                 )}
 
                 <input
+                    {...rest}
                     {...register(name)}
-                    ref={ref}
                     id={id}
-                    placeholder={textError ?? rest.placeholder ?? ''}
+                    placeholder={rest.placeholder ?? ''}
                     aria-invalid={!!textError}
                     className={cn(
                         'w-full rounded-sm outline-1 outline-smoke px-3 py-2 text-sm',
@@ -46,9 +47,10 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                             ? 'outline-1 outline-smoke'
                             : 'outline-1 outline-dragon',
                     )}
-                    {...rest}
                 />
-                {textError && <p className='text-[10px] text-dragon'>{textError}</p>}
+                <div className="h-1">
+                    <p className='text-[12px] text-dragon'>{textError ? textError : " "}</p>
+                </div>
             </div>
         );
     },

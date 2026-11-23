@@ -1,20 +1,17 @@
 import * as React from 'react';
 import { cn } from '@/lib/func';
 import { Portal } from '@/component/core';
-import { Option } from './option';
+import { Option, type optionInterface } from './option';
 import { useSelect } from '@/lib/hook';
-
-interface Option {
-    value: string;
-    label: string;
-}
+import { useFormContext } from 'react-hook-form';
 
 interface Props {
     icon: React.ReactNode;
     title: string;
-    options: Option[];
+    options: optionInterface[];
     className?: string;
     value?: string;
+    name: string
     defaultValue?: string;
     onChange?: (value: string) => void;
 }
@@ -24,14 +21,20 @@ export const Select = ({
     title,
     options,
     className,
+    name,
     value: valueProp,
     defaultValue,
     onChange,
 }: Props) => {
+    const { setValue } = useFormContext()
     const [innerValue, setInnerValue] = React.useState(
         defaultValue ?? options[0]?.value ?? '',
     );
     const value = valueProp ?? innerValue;
+
+    React.useEffect(() => {
+        setValue(name, value)
+    }, [value])
 
     const { open, state, triggerRef, toggleMenu, closeMenu, panelProps } = useSelect();
 
@@ -44,7 +47,7 @@ export const Select = ({
     };
 
     return (
-        <div className={cn('flex w-full flex-col gap-2', className)}>
+        <div className={cn('flex w-full flex-col gap-2 ', className)}>
             <div className="flex items-center gap-2 pl-2 text-dragon-magic">
                 <span className="flex h-4 w-5 items-center justify-center">{icon}</span>
                 <span className="text-[12px] font-bold">{title}</span>
@@ -58,10 +61,10 @@ export const Select = ({
                     'flex w-full items-center justify-between',
                     'rounded-xl border border-transparent bg-dark px-4 py-3',
                     'cursor-pointer transition-colors hover:bg-dragon-hover',
-                    open && 'border-dragon-magic',
+                    value != options[0].value && 'outline-dragon outline',
                 )}
             >
-                <span className="truncate text-sm font-medium text-dragon-text-primary">
+                <span className={cn("truncate text-sm font-medium", value != options[0].value && 'text-dragon')}>
                     {selectedLabel || '-'}
                 </span>
                 <svg

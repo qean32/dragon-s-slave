@@ -8,6 +8,11 @@ interface Props {
     multiple?: boolean
 }
 
+export interface optionInterface {
+    value: string;
+    label: string;
+}
+
 export const Option = React.memo(({ label, isActive, onClick, multiple = false }: Props) => {
     return (
         <button

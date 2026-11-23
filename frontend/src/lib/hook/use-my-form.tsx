@@ -16,7 +16,7 @@ export const useMyForm = <T extends FieldValues>(
     submitErrorCallBack?: (data: any) => void,
 ) => {
     const form = useForm<T>({
-        mode: 'onSubmit',
+        mode: 'onChange',
         resolver: zodResolver(schema),
     });
 

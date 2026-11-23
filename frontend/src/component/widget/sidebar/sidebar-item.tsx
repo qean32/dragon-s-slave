@@ -32,14 +32,12 @@ export const SidebarItem = ({
                         'relative flex h-11 w-11 items-center justify-center rounded-xl',
                         'transition-colors duration-200',
                         'outline-none focus-visible:ring-2 focus-visible:ring-red-700',
-                        active
-                            ? 'bg-red-900/40 text-red-300'
-                            : 'text-dragon-text-secondary hover:bg-dragon-elevated hover:text-red-300',
+                        active && 'bg-red-900/10 text-red-100',
                     )}
                 >
                     <span className="flex h-5 w-5 items-center justify-center">{icon}</span>
                     {active && (
-                        <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r bg-red-700" />
+                        <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r bg-dragon" />
                     )}
                 </Comp>
             </HintTrigger>

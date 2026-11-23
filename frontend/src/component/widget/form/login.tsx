@@ -12,7 +12,7 @@ export const LoginForm = ({ onSwitch }: Props) => {
         useMyForm<loginFormSchema>(
             loginSchema,
             (data: loginFormSchema) => { },
-            () => { form.reset() }
+            () => { }
         )
 
     return (

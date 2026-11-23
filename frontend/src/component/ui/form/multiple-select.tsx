@@ -1,21 +1,18 @@
 import * as React from 'react';
 import { cn } from '@/lib/func';
 import { Portal } from '@/component/core';
-import { Option } from './option';
+import { Option, type optionInterface } from './option';
 import { useSelect, useLocalFilter } from '@/lib/hook';
 import { ControlledSearch } from './controlled-search';
-
-interface Option {
-    value: string;
-    label: string;
-}
+import { useFormContext } from 'react-hook-form';
 
 interface Props {
     icon: React.ReactNode;
     title: string;
-    options: Option[];
+    options: optionInterface[];
     className?: string;
     value?: string[];
+    name: string;
     defaultValue?: string[];
     onChange?: (values: string[]) => void;
 }
@@ -27,10 +24,17 @@ export const MultipleSelect = ({
     className,
     value: valueProp,
     defaultValue,
+    name,
     onChange,
 }: Props) => {
+    const { setValue } = useFormContext()
+
     const [innerValue, setInnerValue] = React.useState<string[]>(defaultValue ?? []);
     const values = valueProp ?? innerValue;
+
+    React.useEffect(() => {
+        setValue(name, values)
+    }, [values])
 
     const [query, setQuery] = React.useState('');
 
@@ -85,11 +89,11 @@ export const MultipleSelect = ({
                     'flex w-full items-center justify-between',
                     'rounded-xl border border-transparent bg-dark px-4 py-3',
                     'cursor-pointer transition-colors hover:bg-dragon-hover',
-                    open && 'border-dragon-magic',
+                    values.length != 0 && 'outline-dragon outline',
                 )}
             >
-                <span className="truncate text-sm font-medium text-dragon-text-primary">
-                    {selectedLabel}
+                <span className={cn("truncate text-sm font-medium", values.length != 0 && 'text-dragon')}>
+                    {selectedLabel || "-"}
                 </span>
                 <svg
                     width="14"
