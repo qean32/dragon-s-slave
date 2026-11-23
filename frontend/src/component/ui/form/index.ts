@@ -6,3 +6,4 @@ export * from './google-button';
 export * from './select';
 export * from './multiple-select';
 export * from './controlled-search';
+export * from './search';

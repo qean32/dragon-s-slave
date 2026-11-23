@@ -11,6 +11,7 @@ export const Search: React.FC<Props> = ({ }: Props) => {
         <input
             {...register}
             type="text"
+            name="search"
             placeholder="Поиск..."
             className={cn(
                 'w-full rounded-lg border border-transparent bg-darkness px-3 py-2 text-sm',
