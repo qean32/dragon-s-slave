@@ -68,6 +68,7 @@ export const MultipleSelect = ({
 
     const handleReset = () => {
         commit([]);
+        toggleMenu()
     };
 
     React.useEffect(() => {
@@ -87,7 +88,7 @@ export const MultipleSelect = ({
                 onClick={toggleMenu}
                 className={cn(
                     'flex w-full items-center justify-between',
-                    'rounded-xl border border-transparent bg-dark px-4 py-3',
+                    'rounded-xl border border-transparent bg-darkness px-4 py-3',
                     'cursor-pointer transition-colors hover:bg-dragon-hover',
                     values.length != 0 && 'outline-dragon outline',
                 )}
@@ -120,8 +121,8 @@ export const MultipleSelect = ({
                         role="listbox"
                         aria-multiselectable
                         className={cn(
-                            'z-50 flex flex-col rounded-xl bg-dark p-1.5',
-                            'shadow-[0_4px_6px_rgba(220,38,38,0.020)]',
+                            'z-50 flex flex-col rounded-xl bg-darkness p-1.5',
+                            'shadow-[0_5px_6px_rgba(220,38,38,0.020)]',
                             'transition-all duration-150 ease-out origin-top',
                             state === 'open'
                                 ? 'scale-100 opacity-100 translate-y-0'
