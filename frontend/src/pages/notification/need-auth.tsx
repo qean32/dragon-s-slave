@@ -5,7 +5,7 @@ export const NeedAuth = () => {
     return (
         <main className="fixed inset-0 flex flex-col items-center justify-center gap-8 bg-darkness px-6 text-center">
             <div className="flex flex-col items-center gap-4">
-                <p className="font-bold uppercase tracking-tight sm:text-7xl lg:text-3xl">
+                <p className="font-bold uppercase tracking-tight text-7xl">
                     Необходима{' '}
                     <span className="text-red-800">авторизация</span>!
                 </p>

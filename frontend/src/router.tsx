@@ -8,7 +8,7 @@ export const Router = () => {
         <BrowserRouter>
             <Sidebar />
             <Routes>
-                <Route element={<page.Main />} path="/" />
+                <Route element={<page.TechWork />} path="/" />
                 <Route element={<page.Auth />} path="/auth" />
                 <Route element={<page.Test />} path="/test" />
                 <Route element={<page.Catalog />} path="/catalog" />
@@ -20,6 +20,8 @@ export const Router = () => {
                 <Route element={<ProtectedRouteAuth><page.CreateCharacter /></ProtectedRouteAuth>} path="/create-character" />
                 <Route element={<ProtectedRouteAuth><page.CreateMap /></ProtectedRouteAuth>} path="/create-map" />
                 <Route element={<ProtectedRouteAuth><page.CreateItem /></ProtectedRouteAuth>} path="/create-item" />
+
+                <Route element={<page._404 />} path="*" />
             </Routes>
         </BrowserRouter>
     )

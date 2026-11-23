@@ -1,3 +1,1 @@
-export const cn = (...args: string[] | any[]) => {
-    return args && args.join(' ')
-}
+export const cn = (...a: (string | false | null | undefined)[]) => a.filter(Boolean).join(" ")

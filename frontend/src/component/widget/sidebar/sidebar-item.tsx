@@ -17,7 +17,7 @@ export const SidebarItem = ({
     onClick,
     href,
 }: SidebarItemProps) => {
-    const Comp = href ? 'a' : 'button';
+    const Comp = href ? 'a' : 'div';
 
     return (
         <Hint className="w-fit" positioning={{ placement: 'right', gutter: '0px' }}>
