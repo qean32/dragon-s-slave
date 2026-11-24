@@ -59,7 +59,7 @@ export const Select = ({
                 onClick={toggleMenu}
                 className={cn(
                     'flex w-full items-center justify-between',
-                    'rounded-xl border border-transparent bg-darkness px-4 py-3',
+                    'rounded-xl border border-transparent bg-dark-primary px-3 py-2.5',
                     'cursor-pointer transition-colors hover:bg-dragon-hover',
                     value != options[0].value && 'outline-dragon outline',
                 )}
@@ -91,7 +91,7 @@ export const Select = ({
                         {...panelProps}
                         role="listbox"
                         className={cn(
-                            'z-50 flex flex-col gap-1 rounded-xl bg-darkness p-1.5',
+                            'z-50 flex flex-col gap-1 rounded-xl bg-dark-primary p-1.5',
                             'shadow-[0_5px_6px_rgba(220,38,38,0.020)]',
                             'transition-all duration-150 ease-out origin-top',
                             state === 'open'

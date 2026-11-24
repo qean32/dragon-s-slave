@@ -14,7 +14,7 @@ export const Search: React.FC<Props> = ({ }: Props) => {
             name="search"
             placeholder="Поиск..."
             className={cn(
-                'w-full rounded-lg border border-transparent bg-darkness px-3 py-2 text-sm',
+                'w-full rounded-lg border border-transparent bg-dark-primary px-3 py-2 text-sm',
                 'text-dragon-text-primary placeholder:text-dragon-text-secondary',
                 'outline-none transition-colors focus:border-dragon-magic',
             )}

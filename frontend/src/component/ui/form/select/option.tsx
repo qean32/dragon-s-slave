@@ -22,8 +22,8 @@ export const Option = React.memo(({ label, isActive, onClick, multiple = false }
             onClick={onClick}
             className={cn(
                 'flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm transition-colors',
-                multiple && 'bg-dark',
-                !multiple && 'hover:bg-dark',
+                multiple && 'bg-darkness',
+                !multiple && 'hover:bg-darkness',
                 isActive
                     ? 'text-dragon-text-primary'
                     : 'text-dragon-text-secondary hover:bg-dragon-elevated hover:text-dragon-text-primary',

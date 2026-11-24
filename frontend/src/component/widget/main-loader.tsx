@@ -32,7 +32,7 @@ export const MainLoader: React.FC<Props> = ({
             <div
                 className={cn(
                     'fixed inset-0 flex flex-col gap-7',
-                    'bg-dark backdrop-blur-sm z-10',
+                    'bg-darkness backdrop-blur-sm z-10',
                     'flex justify-center items-center',
                     'transition-opacity duration-300',
                     !boolean && 'pointer-events-none opacity-0',

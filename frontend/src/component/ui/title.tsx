@@ -18,7 +18,7 @@ const sizeStyles = {
 
 export const Title = React.memo(
     ({ className, children, as: Tag = 'h2', size = 'lg', ...rest }: Props) => (
-        <Tag className={cn('pl-0.5 mt-2 font-semibold', sizeStyles[size], className)} {...rest}>
+        <Tag className={cn('pl-0.5 font-semibold', sizeStyles[size], className)} {...rest}>
             {children}
         </Tag>
     ),

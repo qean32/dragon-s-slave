@@ -5,6 +5,7 @@ import { Option, type optionInterface } from './option';
 import { useSelect, useLocalFilter } from '@/lib/hook';
 import { ControlledSearch } from './controlled-search';
 import { useFormContext } from 'react-hook-form';
+import { HiddenButton } from '../hidden-button';
 
 interface Props {
     icon: React.ReactNode;
@@ -88,7 +89,7 @@ export const MultipleSelect = ({
                 onClick={toggleMenu}
                 className={cn(
                     'flex w-full items-center justify-between',
-                    'rounded-xl border border-transparent bg-darkness px-4 py-3',
+                    'rounded-xl border border-transparent bg-dark-primary px-4 py-3',
                     'cursor-pointer transition-colors hover:bg-dragon-hover',
                     values.length != 0 && 'outline-dragon outline',
                 )}
@@ -121,7 +122,7 @@ export const MultipleSelect = ({
                         role="listbox"
                         aria-multiselectable
                         className={cn(
-                            'z-50 flex flex-col rounded-xl bg-darkness p-1.5',
+                            'z-50 flex flex-col rounded-xl bg-dark-primary p-1.5',
                             'shadow-[0_5px_6px_rgba(220,38,38,0.020)]',
                             'transition-all duration-150 ease-out origin-top',
                             state === 'open'
@@ -152,15 +153,11 @@ export const MultipleSelect = ({
                         </div>
 
                         <div className="mt-2 w-fit py-1 pt-2">
-                            <button
-                                type="button"
+                            <HiddenButton
+                                children="Сбросить"
                                 onClick={handleReset}
-                                className={cn(
-                                    'w-full rounded-lg px-3 py-2 text-sm font-medium transition-colors',
-                                )}
-                            >
-                                Сбросить
-                            </button>
+                                className='w-full rounded-lg px-3 py-2 text-sm font-medium transition-colors'
+                            />
                         </div>
                     </div>
                 </Portal>

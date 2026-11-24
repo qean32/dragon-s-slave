@@ -2,10 +2,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import * as page from '@/pages'
 import { Sidebar } from "./component/widget/sidebar/sidebar"
 import { ProtectedRouteAuth } from "./pages/protected-route"
+import { MainLoader } from '@/component/widget'
 
 export const Router = () => {
     return (
         <BrowserRouter>
+            <MainLoader />
             <Sidebar />
             <Routes>
                 <Route element={<page.TechWork />} path="/" />

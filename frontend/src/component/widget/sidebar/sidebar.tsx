@@ -19,7 +19,7 @@ export const Sidebar = ({ className }: Props) => {
         <aside
             className={cn(
                 'fixed left-0 top-0 z-40 flex h-dvh w-16 flex-col items-center',
-                'gap-2 bg-dark px-2 py-4 backdrop-blur-sm',
+                'gap-2 bg-darkness px-2 py-4 backdrop-blur-sm',
                 className,
             )}
         >
