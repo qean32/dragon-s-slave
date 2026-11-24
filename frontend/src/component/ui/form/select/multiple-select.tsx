@@ -90,7 +90,7 @@ export const MultipleSelect = ({
                 className={cn(
                     'flex w-full items-center justify-between',
                     'rounded-xl border border-transparent bg-dark-primary px-4 py-3',
-                    'cursor-pointer transition-colors hover:bg-dragon-hover',
+                    'cursor-pointer transition-colors hover:bg-dragon-magic/20',
                     values.length != 0 && 'outline-dragon outline',
                 )}
             >

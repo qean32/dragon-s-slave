@@ -14,17 +14,17 @@ export interface ButtonProps
 
 const variantStyles: Record<ButtonVariant, string> = {
     primary:
-        'bg-dragon text-white outline-red-900 ' +
-        'hover:shadow-[0_0_16px_rgba(220,38,38,0.5)]',
+        'bg-dragon text-dragon-text-primary outline-dragon ' +
+        'hover:shadow-[0_0_16px_rgba(139,30,30,0.5)]',
     secondary:
-        'bg-dragon-elevated text-red-400 outline-2 outline-red-900/70 ' +
-        'hover:shadow-[0_0_16px_rgba(220,38,38,0.35)]',
+        'bg-dragon-elevated text-dragon-text-primary outline-2 outline-dragon/70 ' +
+        'hover:shadow-[0_0_16px_rgba(139,30,30,0.35)]',
     ghost:
-        'bg-transparent text-red-400 outline-transparent ' +
-        'hover:shadow-[0_0_12px_rgba(220,38,38,0.25)]',
+        'bg-transparent text-dragon-text-primary outline-transparent ' +
+        'hover:shadow-[0_0_12px_rgba(139,30,30,0.25)]',
     danger:
-        'bg-red-900 text-white outline-red-950 ' +
-        'hover:shadow-[0_0_16px_rgba(220,38,38,0.55)]',
+        'bg-dragon-dark text-white outline-dragon-dark ' +
+        'hover:shadow-[0_0_16px_rgba(94,21,21,0.55)]',
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

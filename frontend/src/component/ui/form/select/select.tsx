@@ -60,7 +60,7 @@ export const Select = ({
                 className={cn(
                     'flex w-full items-center justify-between',
                     'rounded-xl border border-transparent bg-dark-primary px-3 py-2.5',
-                    'cursor-pointer transition-colors hover:bg-dragon-hover',
+                    'cursor-pointer transition-colors hover:bg-dragon-magic/20',
                     value != options[0].value && 'outline-dragon outline',
                 )}
             >

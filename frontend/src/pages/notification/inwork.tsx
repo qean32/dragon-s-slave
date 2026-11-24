@@ -7,7 +7,7 @@ export const Inwork = () => {
             <div className="flex flex-col items-center gap-4">
                 <p className="font-bold uppercase tracking-tight text-7xl">
                     В разработке
-                    <span className="text-red-800">!</span>
+                    <span className="text-dragon">!</span>
                 </p>
 
                 <p className="max-w-md text-sm text-dragon">

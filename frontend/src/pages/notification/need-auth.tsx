@@ -7,7 +7,7 @@ export const NeedAuth = () => {
             <div className="flex flex-col items-center gap-4">
                 <p className="font-bold uppercase tracking-tight text-7xl">
                     Необходима{' '}
-                    <span className="text-red-800">авторизация</span>!
+                    <span className="text-dragon">авторизация</span>!
                 </p>
 
                 <p className="max-w-md text-sm text-dragon">

@@ -31,8 +31,8 @@ export const SidebarItem = ({
                     className={cn(
                         'relative flex h-11 w-11 items-center justify-center rounded-xl',
                         'transition-colors duration-200',
-                        'outline-none focus-visible:ring-2 focus-visible:ring-red-700',
-                        active && 'bg-red-900/10 text-red-100',
+                        'outline-none focus-visible:ring-2 focus-visible:ring-dragon-magic',
+                        active && 'bg-dragon/10 text-dragon-text-primary',
                     )}
                 >
                     <span className="flex h-5 w-5 items-center justify-center">{icon}</span>

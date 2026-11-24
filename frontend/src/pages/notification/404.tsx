@@ -7,7 +7,7 @@ export const _404 = () => {
     return (
         <div className="h-full flex justify-center items-center fixed inset-0">
             <div>
-                <p className="text-5xl -translate-x-2 uppercase">Страница <span className="text-red-800">404</span>!</p>
+                <p className="text-5xl -translate-x-2 uppercase">Страница <span className="text-dragon">404</span>!</p>
                 <LogoIcon className="my-2" />
                 <p className="mt-3">Как вы сюда попали?</p>
                 <Link to={'..'}

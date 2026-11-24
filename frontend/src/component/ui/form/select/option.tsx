@@ -26,8 +26,7 @@ export const Option = React.memo(({ label, isActive, onClick, multiple = false }
                 !multiple && 'hover:bg-darkness',
                 isActive
                     ? 'text-dragon-text-primary'
-                    : 'text-dragon-text-secondary hover:bg-dragon-elevated hover:text-dragon-text-primary',
-
+                    : 'text-dragon-text-secondary hover:text-dragon-text-primary',
                 multiple && isActive && 'outline-1 outline-dragon ring-dragon-magic',
                 !multiple && isActive && 'bg-dragon-magic/20',
             )}

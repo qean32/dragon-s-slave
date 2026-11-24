@@ -13,8 +13,8 @@ export const DropdownItem = ({ icon, danger, children, className, ...rest }: Dro
         className={cn(
             'flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm transition-colors',
             danger
-                ? 'text-red-400 hover:bg-red-900/40 hover:text-red-300'
-                : 'text-dragon-text-primary hover:bg-red-900/30 hover:text-red-300',
+                ? 'text-dragon hover:bg-dragon/20 hover:text-dragon-text-primary'
+                : 'text-dragon-text-primary hover:bg-dragon-hover/20 hover:text-dragon-text-primary',
             className,
         )}
         {...rest}

@@ -10,7 +10,7 @@ export const Auth = () => {
     const isLogin = mode === 'login';
 
     return (
-        <main className="flex min-h-dvh flex-col items-center justify-center bg-dragon-pattern px-4 py-2">
+        <main className="flex min-h-dvh flex-col items-center justify-center px-4 py-2">
             <div className="w-95 max-w-4xl rounded-2xl bg-darkness p-8 pt-4 shadow-lg backdrop-blur-sm">
                 <div className="grid">
                     <section
