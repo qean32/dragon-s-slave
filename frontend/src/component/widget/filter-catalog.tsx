@@ -38,7 +38,7 @@ export const FilterCatalog = ({ className }: Props) => {
         <FormProvider {...form}>
             <form>
                 <aside className={cn(
-                    'flex w-100 flex-col gap-6 rounded-3xl bg-darkness pb-20 p-10',
+                    'flex w-80 flex-col gap-6 rounded-2xl bg-darkness pb-10 p-5',
                     className
                 )}>
                     <div className="flex justify-between items-center">

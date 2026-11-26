@@ -18,10 +18,12 @@ export const Router = () => {
                 <Route element={<page.Character />} path="/character/:id" />
                 <Route element={<page.Item />} path="/item/:id" />
                 <Route element={<page.Map />} path="/map/:id" />
+                <Route element={<page.Map />} path="/entity/:id" />
 
                 <Route element={<ProtectedRouteAuth><page.CreateCharacter /></ProtectedRouteAuth>} path="/create-character" />
                 <Route element={<ProtectedRouteAuth><page.CreateMap /></ProtectedRouteAuth>} path="/create-map" />
                 <Route element={<ProtectedRouteAuth><page.CreateItem /></ProtectedRouteAuth>} path="/create-item" />
+                <Route element={<ProtectedRouteAuth><page.CreateEntity /></ProtectedRouteAuth>} path="/entity-item" />
 
                 <Route element={<page._404 />} path="*" />
             </Routes>

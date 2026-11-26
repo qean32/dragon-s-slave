@@ -56,9 +56,9 @@ export const Sidebar = ({ className }: Props) => {
                 _
                 <SidebarItem
                     icon={<PersonIcon />}
-                    label="создание персонажа"
-                    onClick={() => navigate('/create-character')}
-                    active={isActive('/create-character')}
+                    label="персонаж"
+                    onClick={() => navigate('character/1')}
+                    active={isActive('character/1')}
                 />
                 <SidebarItem
                     icon={<ForgeIcon />}
